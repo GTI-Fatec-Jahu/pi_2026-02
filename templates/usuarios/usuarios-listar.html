@@ -1,0 +1,122 @@
+{% extends 'layout/base_menu.html' %}
+
+{% block titulo %} Listar usuários {% endblock %}
+
+{% block conteudo %}
+
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
+  <div>
+    <h2 class="fw-bold mb-1">Tabela: Usuários (usuarios)</h2>
+    <p class="text-muted mb-0">Registros em conformidade direta com as colunas do banco de dados relacional</p>
+  </div>
+  <a href="usuarios-cadastrar.html" class="btn btn-primary">
+    <i class="bi bi-person-plus me-1"></i> Cadastrar Novo Usuário
+  </a>
+</div>
+
+<div class="card border-0 shadow-sm rounded-3">
+  <div class="card-body">
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="input-group">
+          <span class="input-group-text bg-white text-muted"><i class="bi bi-search"></i></span>
+          <input type="text" id="filtro-usuarios" class="form-control border-start-0"
+            placeholder="Buscar por nome, e-mail ou CPF...">
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-hover table-striped align-middle mb-0">
+        <thead class="table-light">
+          <tr>
+            <th scope="col" style="width: 60px;">#ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Celular</th>
+            <th scope="col">Perfil (FK)</th>
+            <th scope="col">Cidade / UF</th>
+            <th scope="col">Criado em</th>
+            <th scope="col" class="text-end" style="width: 140px;">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-usuarios">
+          <tr>
+            <td class="text-muted fw-bold">1</td>
+            <td class="fw-semibold">Ash Ketchum</td>
+            <td>ash@pallettown.org</td>
+            <td><span class="badge text-bg-light border font-monospace">123.456.789-01</span></td>
+            <td>(14) 99123-4567</td>
+            <td><span class="badge bg-primary-subtle text-primary">#1 - Administrador</span></td>
+            <td>Pallet / SP</td>
+            <td class="text-muted small">2026-01-10 10:15</td>
+            <td class="text-end">
+              <button type="button" class="btn btn-sm btn-outline-info me-1" data-bs-toggle="modal"
+                data-bs-target="#modalUser1" title="Ver Detalhes do Endereço">
+                <i class="bi bi-eye"></i>
+              </button>
+              <button class="btn btn-sm btn-outline-danger" onclick="this.closest('tr').remove();" title="Excluir"><i
+                  class="bi bi-trash"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-muted fw-bold">2</td>
+            <td class="fw-semibold">Misty Waterflower</td>
+            <td>misty@cerulean.org</td>
+            <td><span class="badge text-bg-light border font-monospace">987.654.321-02</span></td>
+            <td>(14) 99876-5432</td>
+            <td><span class="badge bg-success-subtle text-success">#2 - Treinador</span></td>
+            <td>Cerulean / SP</td>
+            <td class="text-muted small">2026-01-12 14:30</td>
+            <td class="text-end">
+              <button type="button" class="btn btn-sm btn-outline-info me-1" data-bs-toggle="modal"
+                data-bs-target="#modalUser2" title="Ver Detalhes do Endereço">
+                <i class="bi bi-eye"></i>
+              </button>
+              <button class="btn btn-sm btn-outline-danger" onclick="this.closest('tr').remove();" title="Excluir"><i
+                  class="bi bi-trash"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-muted fw-bold">3</td>
+            <td class="fw-semibold">Brock Harrison</td>
+            <td>brock@pewter.org</td>
+            <td><span class="badge text-bg-light border font-monospace">456.789.012-03</span></td>
+            <td>(14) 99456-7890</td>
+            <td><span class="badge bg-secondary-subtle text-secondary">#3 - Pesquisador</span></td>
+            <td>Pewter / SP</td>
+            <td class="text-muted small">2026-01-15 08:45</td>
+            <td class="text-end">
+              <button type="button" class="btn btn-sm btn-outline-info me-1" data-bs-toggle="modal"
+                data-bs-target="#modalUser3" title="Ver Detalhes do Endereço">
+                <i class="bi bi-eye"></i>
+              </button>
+              <button class="btn btn-sm btn-outline-danger" onclick="this.closest('tr').remove();" title="Excluir"><i
+                  class="bi bi-trash"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-muted fw-bold">4</td>
+            <td class="fw-semibold">Gary Carvalho</td>
+            <td>gary@oaklab.org</td>
+            <td><span class="badge text-bg-light border font-monospace">789.012.345-04</span></td>
+            <td>(14) 98111-2233</td>
+            <td><span class="badge bg-secondary-subtle text-secondary">#3 - Pesquisador</span></td>
+            <td>Pallet / SP</td>
+            <td class="text-muted small">2026-02-01 16:00</td>
+            <td class="text-end">
+              <button type="button" class="btn btn-sm btn-outline-info me-1" data-bs-toggle="modal"
+                data-bs-target="#modalUser4" title="Ver Detalhes do Endereço">
+                <i class="bi bi-eye"></i>
+              </button>
+              <button class="btn btn-sm btn-outline-danger" onclick="this.closest('tr').remove();" title="Excluir"><i
+                  class="bi bi-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

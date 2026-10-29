@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Usuário - PokéAdmin</title>
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body class="bg-light text-dark">
+
+  <!-- NAVBAR COM DROPDOWNS -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container-fluid px-lg-4">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="dashboard.html">
+        <i class="bi bi-bullseye text-danger me-2 fs-4"></i>
+        <span>PokéAdmin</span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Início / Index -->
+          <li class="nav-item">
+            <a class="nav-link " href="dashboard.html">
+              <i class="bi bi-speedometer2 me-1"></i> Início
+            </a>
+          </li>
+
+          <!-- Dropdown Usuários -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-people me-1"></i> Usuários
+            </a>
+            <ul class="dropdown-menu shadow-sm border-0">
+              <li><a class="dropdown-item" href="usuarios-listar.html"><i class="bi bi-list-ul me-2 text-primary"></i>Listar Usuários</a></li>
+              <li><a class="dropdown-item" href="usuarios-cadastrar.html"><i class="bi bi-person-plus me-2 text-success"></i>Cadastrar Usuário</a></li>
+            </ul>
+          </li>
+
+          <!-- Dropdown Perfis -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-shield-check me-1"></i> Perfis
+            </a>
+            <ul class="dropdown-menu shadow-sm border-0">
+              <li><a class="dropdown-item" href="perfis-listar.html"><i class="bi bi-card-checklist me-2 text-primary"></i>Listar Perfis</a></li>
+              <li><a class="dropdown-item" href="perfis-cadastrar.html"><i class="bi bi-plus-circle me-2 text-success"></i>Cadastrar Perfil</a></li>
+            </ul>
+          </li>
+
+          <!-- Dropdown Pokémons -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-lightning-charge me-1"></i> Pokémons
+            </a>
+            <ul class="dropdown-menu shadow-sm border-0">
+              <li><a class="dropdown-item" href="pokemons-listar.html"><i class="bi bi-grid me-2 text-danger"></i>Listar Pokémons</a></li>
+              <li><a class="dropdown-item" href="pokemons-cadastrar.html"><i class="bi bi-plus-square me-2 text-success"></i>Cadastrar Pokémon</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Usuário Logado e Sair -->
+        <div class="d-flex align-items-center gap-3">
+          <div class="text-light d-none d-md-flex align-items-center">
+            <span class="badge text-bg-danger rounded-pill me-2"><i class="bi bi-award me-1"></i>Mestre</span>
+            <span class="small fw-semibold">Ash Ketchum</span>
+          </div>
+          <a href="login.html" class="btn btn-outline-light btn-sm">
+            <i class="bi bi-box-arrow-right me-1"></i> Sair
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-fluid px-lg-4 py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h2 class="fw-bold mb-1">Cadastrar Usuário</h2>
+        <p class="text-muted mb-0">Formulário correspondente às colunas da tabela <code>usuarios</code></p>
+      </div>
+      <a href="usuarios-listar.html" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left me-1"></i> Voltar à Lista
+      </a>
+    </div>
+
+    <form action="usuarios-listar.html" method="GET">
+      <!-- Seção 1: Dados Pessoais e de Acesso -->
+      <div class="card border-0 shadow-sm rounded-3 mb-4">
+        <div class="card-header bg-white py-3 border-0">
+          <h5 class="fw-bold mb-0 text-primary"><i class="bi bi-person-vcard me-2"></i>Dados Pessoais e de Acesso</h5>
+        </div>
+        <div class="card-body p-4 pt-0">
+          <div class="row g-3">
+            <div class="col-12 col-md-8">
+              <label for="nome" class="form-label fw-semibold">Nome Completo <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="nome" name="nome" maxlength="255" required placeholder="Ex: Serena Yvonne">
+            </div>
+
+            <div class="col-12 col-md-4">
+              <label for="cpf" class="form-label fw-semibold">CPF</label>
+              <input type="text" class="form-control" id="cpf" name="cpf" maxlength="14" placeholder="000.000.000-00">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="email" class="form-label fw-semibold">E-mail <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="email" name="email" maxlength="255" required placeholder="Ex: serena@kalos.org">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="senha" class="form-label fw-semibold">Senha <span class="text-danger">*</span></label>
+              <input type="password" class="form-control" id="senha" name="senha" maxlength="255" required placeholder="••••••••">
+            </div>
+
+            <div class="col-12 col-md-4">
+              <label for="celular" class="form-label fw-semibold">Celular</label>
+              <input type="tel" class="form-control" id="celular" name="celular" maxlength="20" placeholder="(14) 99999-9999">
+            </div>
+
+            <div class="col-12 col-md-4">
+              <label for="data_nascimento" class="form-label fw-semibold">Data de Nascimento</label>
+              <input type="date" class="form-control" id="data_nascimento" name="data_nascimento">
+            </div>
+
+            <div class="col-12 col-md-4">
+              <label for="perfil_id" class="form-label fw-semibold">Perfil de Acesso (FK) <span class="text-danger">*</span></label>
+              <select class="form-select" id="perfil_id" name="perfil_id" required>
+                <option value="" disabled selected>Selecione um perfil...</option>
+                <option value="1">1 - Administrador</option>
+                <option value="2">2 - Treinador</option>
+                <option value="3">3 - Pesquisador</option>
+              </select>
+              <div class="form-text small">Chave estrangeira vinculada a <code>perfis(id_perfil)</code></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção 2: Endereço -->
+      <div class="card border-0 shadow-sm rounded-3 mb-4">
+        <div class="card-header bg-white py-3 border-0">
+          <h5 class="fw-bold mb-0 text-primary"><i class="bi bi-geo-alt me-2"></i>Endereço</h5>
+        </div>
+        <div class="card-body p-4 pt-0">
+          <div class="row g-3">
+            <div class="col-12 col-md-3">
+              <label for="cep" class="form-label fw-semibold">CEP</label>
+              <input type="text" class="form-control" id="cep" name="cep" maxlength="9" placeholder="00000-000">
+            </div>
+
+            <div class="col-12 col-md-7">
+              <label for="endereco" class="form-label fw-semibold">Endereço (Logradouro)</label>
+              <input type="text" class="form-control" id="endereco" name="endereco" maxlength="255" placeholder="Rua, Avenida, Praça...">
+            </div>
+
+            <div class="col-12 col-md-2">
+              <label for="numero" class="form-label fw-semibold">Número</label>
+              <input type="text" class="form-control" id="numero" name="numero" maxlength="20" placeholder="Ex: 123">
+            </div>
+
+            <div class="col-12 col-md-4">
+              <label for="complemento" class="form-label fw-semibold">Complemento</label>
+              <input type="text" class="form-control" id="complemento" name="complemento" maxlength="100" placeholder="Apto 12, Bloco B...">
+            </div>
+
+            <div class="col-12 col-md-5">
+              <label for="cidade" class="form-label fw-semibold">Cidade</label>
+              <input type="text" class="form-control" id="cidade" name="cidade" maxlength="100" placeholder="Ex: Jaú">
+            </div>
+
+            <div class="col-12 col-md-3">
+              <label for="estado" class="form-label fw-semibold">Estado (UF)</label>
+              <select class="form-select" id="estado" name="estado">
+                <option value="SP" selected>SP - São Paulo</option>
+                <option value="RJ">RJ - Rio de Janeiro</option>
+                <option value="MG">MG - Minas Gerais</option>
+                <option value="PR">PR - Paraná</option>
+                <option value="RS">RS - Rio Grande do Sul</option>
+                <option value="SC">SC - Santa Catarina</option>
+                <option value="BA">BA - Bahia</option>
+                <option value="GO">GO - Goiás</option>
+                <option value="DF">DF - Distrito Federal</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex gap-2 justify-content-end mb-5">
+        <a href="usuarios-listar.html" class="btn btn-light px-4">Cancelar</a>
+        <button type="submit" class="btn btn-primary px-4 fw-semibold">
+          <i class="bi bi-check-lg me-1"></i> Salvar Usuário
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <!-- Bootstrap 5.3 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+</body>
+</html>

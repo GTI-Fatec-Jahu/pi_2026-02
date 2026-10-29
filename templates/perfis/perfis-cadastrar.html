@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Perfil - PokéAdmin</title>
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body class="bg-light text-dark">
+
+  <!-- NAVBAR COM DROPDOWNS -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container-fluid px-lg-4">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="dashboard.html">
+        <i class="bi bi-bullseye text-danger me-2 fs-4"></i>
+        <span>PokéAdmin</span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Início / Index -->
+          <li class="nav-item">
+            <a class="nav-link " href="dashboard.html">
+              <i class="bi bi-speedometer2 me-1"></i> Início
+            </a>
+          </li>
+
+          <!-- Dropdown Usuários -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-people me-1"></i> Usuários
+            </a>
+            <ul class="dropdown-menu shadow-sm border-0">
+              <li><a class="dropdown-item" href="usuarios-listar.html"><i class="bi bi-list-ul me-2 text-primary"></i>Listar Usuários</a></li>
+              <li><a class="dropdown-item" href="usuarios-cadastrar.html"><i class="bi bi-person-plus me-2 text-success"></i>Cadastrar Usuário</a></li>
+            </ul>
+          </li>
+
+          <!-- Dropdown Perfis -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-shield-check me-1"></i> Perfis
+            </a>
+            <ul class="dropdown-menu shadow-sm border-0">
+              <li><a class="dropdown-item" href="perfis-listar.html"><i class="bi bi-card-checklist me-2 text-primary"></i>Listar Perfis</a></li>
+              <li><a class="dropdown-item" href="perfis-cadastrar.html"><i class="bi bi-plus-circle me-2 text-success"></i>Cadastrar Perfil</a></li>
+            </ul>
+          </li>
+
+          <!-- Dropdown Pokémons -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-lightning-charge me-1"></i> Pokémons
+            </a>
+            <ul class="dropdown-menu shadow-sm border-0">
+              <li><a class="dropdown-item" href="pokemons-listar.html"><i class="bi bi-grid me-2 text-danger"></i>Listar Pokémons</a></li>
+              <li><a class="dropdown-item" href="pokemons-cadastrar.html"><i class="bi bi-plus-square me-2 text-success"></i>Cadastrar Pokémon</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Usuário Logado e Sair -->
+        <div class="d-flex align-items-center gap-3">
+          <div class="text-light d-none d-md-flex align-items-center">
+            <span class="badge text-bg-danger rounded-pill me-2"><i class="bi bi-award me-1"></i>Mestre</span>
+            <span class="small fw-semibold">Ash Ketchum</span>
+          </div>
+          <a href="login.html" class="btn btn-outline-light btn-sm">
+            <i class="bi bi-box-arrow-right me-1"></i> Sair
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-fluid px-lg-4 py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h2 class="fw-bold mb-1">Cadastrar Perfil de Acesso</h2>
+        <p class="text-muted mb-0">Formulário correspondente às colunas da tabela <code>perfis</code></p>
+      </div>
+      <a href="perfis-listar.html" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left me-1"></i> Voltar à Lista
+      </a>
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-3">
+      <div class="card-body p-4">
+        <form action="perfis-listar.html" method="GET">
+          <div class="row g-3">
+            <div class="col-12">
+              <label for="nome" class="form-label fw-semibold">Nome do Perfil (VARCHAR 100 UNIQUE) <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="nome" name="nome" maxlength="100" required placeholder="Ex: Líder de Ginásio">
+            </div>
+
+            <div class="col-12">
+              <label for="descricao" class="form-label fw-semibold">Descrição (VARCHAR 255)</label>
+              <textarea class="form-control" id="descricao" name="descricao" maxlength="255" rows="3" placeholder="Descreva as responsabilidades ou escopo deste perfil de acesso..."></textarea>
+              <div class="form-text small">Limite máximo de 255 caracteres conforme especificado na coluna <code>descricao</code>.</div>
+            </div>
+
+            <div class="col-12 pt-3 border-top d-flex gap-2 justify-content-end">
+              <a href="perfis-listar.html" class="btn btn-light">Cancelar</a>
+              <button type="submit" class="btn btn-success">
+                <i class="bi bi-check-lg me-1"></i> Salvar Perfil
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap 5.3 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+</body>
+</html>
