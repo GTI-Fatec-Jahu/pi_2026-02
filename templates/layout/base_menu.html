@@ -20,7 +20,7 @@
   <!-- NAVBAR COM DROPDOWNS -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
     <div class="container-fluid px-lg-4">
-      <a class="navbar-brand fw-bold d-flex align-items-center" href="dashboard.html">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="{{ url_for('dashboard')}}">
         <i class="bi bi-bullseye text-danger me-2 fs-4"></i>
         <span>PokéAdmin</span>
       </a>
@@ -34,7 +34,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <!-- Início / Index -->
           <li class="nav-item">
-            <a class="nav-link active" href="dashboard.html">
+            <a class="nav-link active" href="{{ url_for('dashboard')}}">
               <i class="bi bi-speedometer2 me-1"></i> Início
             </a>
           </li>
@@ -45,9 +45,9 @@
               <i class="bi bi-people me-1"></i> Usuários
             </a>
             <ul class="dropdown-menu shadow-sm border-0">
-              <li><a class="dropdown-item" href="usuarios-listar.html"><i
+              <li><a class="dropdown-item" href="{{ url_for('listar_usuarios')}}"><i
                     class="bi bi-list-ul me-2 text-primary"></i>Listar Usuários</a></li>
-              <li><a class="dropdown-item" href="usuarios-cadastrar.html"><i
+              <li><a class="dropdown-item" href="{{ url_for('inserir_usuario')}}"><i
                     class="bi bi-person-plus me-2 text-success"></i>Cadastrar Usuário</a></li>
             </ul>
           </li>
@@ -71,9 +71,9 @@
               <i class="bi bi-lightning-charge me-1"></i> Pokémons
             </a>
             <ul class="dropdown-menu shadow-sm border-0">
-              <li><a class="dropdown-item" href="pokemons-listar.html"><i class="bi bi-grid me-2 text-danger"></i>Listar
+              <li><a class="dropdown-item" href="{{ url_for('listar_pokemons')}}"><i class="bi bi-grid me-2 text-danger"></i>Listar
                   Pokémons</a></li>
-              <li><a class="dropdown-item" href="pokemons-cadastrar.html"><i
+              <li><a class="dropdown-item" href="{{ url_for('inserir_pokemon')}}"><i
                     class="bi bi-plus-square me-2 text-success"></i>Cadastrar Pokémon</a></li>
             </ul>
           </li>

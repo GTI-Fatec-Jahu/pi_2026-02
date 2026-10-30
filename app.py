@@ -14,6 +14,22 @@ def dashboard():
 def listar_usuarios():
     return render_template('usuarios/usuarios-listar.html')
 
+@app.route('/usuarios/inserir')
+def inserir_usuario():
+    return render_template('usuarios/usuarios-form.html')
+
+@app.route('/pokemons/listar')
+def listar_pokemons():
+    return render_template('pokemons/pokemons-listar.html')
+
+@app.route('/pokemons/inserir')
+def inserir_pokemon():
+    return render_template('pokemons/pokemons-form.html')
+
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 

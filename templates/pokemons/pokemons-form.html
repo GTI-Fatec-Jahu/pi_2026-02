@@ -1,0 +1,87 @@
+{% extends 'layout/base_menu.html' %}
+
+{% block titulo %} Pokemons {% endblock %}
+
+{% block conteudo %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h2 class="fw-bold mb-1">Cadastrar Pokémon</h2>
+    <p class="text-muted mb-0">Registre uma nova criatura na Pokédex oficial</p>
+  </div>
+  <a href="pokemons-listar.html" class="btn btn-outline-secondary">
+    <i class="bi bi-arrow-left me-1"></i> Voltar à Lista
+  </a>
+</div>
+
+<div class="card border-0 shadow-sm rounded-3">
+  <div class="card-body p-4">
+    <form action="pokemons-listar.html" method="GET">
+      <div class="row g-3">
+        <div class="col-12 col-md-3">
+          <label for="poke-numero" class="form-label fw-semibold">Número Pokédex</label>
+          <div class="input-group">
+            <span class="input-group-text">#</span>
+            <input type="number" class="form-control" id="poke-numero" required placeholder="025" min="1" max="1025">
+          </div>
+        </div>
+
+        <div class="col-12 col-md-5">
+          <label for="poke-nome" class="form-label fw-semibold">Nome do Pokémon</label>
+          <input type="text" class="form-control" id="poke-nome" required placeholder="Ex: Snorlax">
+        </div>
+
+        <div class="col-12 col-md-4">
+          <label for="poke-cp" class="form-label fw-semibold">Poder de Combate (CP)</label>
+          <input type="number" class="form-control" id="poke-cp" required placeholder="Ex: 1850" min="10" max="5000">
+        </div>
+
+        <div class="col-12 col-md-4">
+          <label for="poke-tipo1" class="form-label fw-semibold">Tipo Primário</label>
+          <select class="form-select" id="poke-tipo1" required>
+            <option value="Normal">Normal</option>
+            <option value="Elétrico">Elétrico</option>
+            <option value="Fogo">Fogo</option>
+            <option value="Água">Água</option>
+            <option value="Grama">Grama</option>
+            <option value="Psíquico">Psíquico</option>
+            <option value="Gelo">Gelo</option>
+            <option value="Dragão">Dragão</option>
+            <option value="Fantasma">Fantasma</option>
+          </select>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <label for="poke-tipo2" class="form-label fw-semibold">Tipo Secundário</label>
+          <select class="form-select" id="poke-tipo2">
+            <option value="Nenhum" selected>Nenhum</option>
+            <option value="Voador">Voador</option>
+            <option value="Venenoso">Venenoso</option>
+            <option value="Aço">Aço</option>
+            <option value="Fada">Fada</option>
+            <option value="Lutador">Lutador</option>
+            <option value="Terrestre">Terrestre</option>
+          </select>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <label for="poke-habilidade" class="form-label fw-semibold">Habilidade Principal</label>
+          <input type="text" class="form-control" id="poke-habilidade" required placeholder="Ex: Imunidade">
+        </div>
+
+        <div class="col-12">
+          <label for="poke-descricao" class="form-label fw-semibold">Observações / Bioma</label>
+          <textarea class="form-control" id="poke-descricao" rows="2"
+            placeholder="Local de captura ou notas de pesquisa..."></textarea>
+        </div>
+
+        <div class="col-12 pt-3 border-top d-flex gap-2 justify-content-end">
+          <a href="pokemons-listar.html" class="btn btn-light">Cancelar</a>
+          <button type="submit" class="btn btn-danger">
+            <i class="bi bi-check-lg me-1"></i> Salvar Pokémon
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
